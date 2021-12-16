@@ -1,9 +1,9 @@
-erreurs :
+Erreurs :
 
 CHROME
 [x]-images étirées (taille image + propriété)
 [x]-dans le formulaire, espaces incorrects dans les titres des champs
--dans le formulaire, police des titres des champs incorrect
+[x]-dans le formulaire, police des titres des champs incorrect
 [x]-alligner logo, titre et texte
 
 mobile :
