@@ -9,10 +9,11 @@ CHROME
 mobile :
 [x]-breakpoint du menu incorrect
 [x]-formulaire à mettre sur toute la largeur
--menu fixe au dessus du formulaire
+[x]-menu fixe au dessus du formulaire
 [x]-enlever le fond qui assombrit
 [x]-aligner le logo, le texte et l'image
--bouton menu noir (il doit etre rouge)
+[x]-bouton menu noir (il doit etre rouge)
+-menu déroulant qui s'affiche avec une mauvaise position + retour en haut
 
 FIREFOX
 -texte du copyright trop gros
@@ -20,6 +21,8 @@ FIREFOX
 
 mobile :
 -formulaire apparait trop en hauteur
+
+
 
 
 
