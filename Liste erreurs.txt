@@ -1,0 +1,25 @@
+erreurs :
+
+CHROME
+[x]-images étirées (taille image + propriété)
+[x]-dans le formulaire, espaces incorrects dans les titres des champs
+-dans le formulaire, police des titres des champs incorrect
+[x]-alligner logo, titre et texte
+
+mobile :
+[x]-breakpoint du menu incorrect
+[x]-formulaire à mettre sur toute la largeur
+-menu fixe au dessus du formulaire
+[x]-enlever le fond qui assombrit
+[x]-aligner le logo, le texte et l'image
+-bouton menu noir (il doit etre rouge)
+
+FIREFOX
+-texte du copyright trop gros
+-texte dans le formulaire trop mince (à part les titre des champs)
+
+mobile :
+-formulaire apparait trop en hauteur
+
+
+
