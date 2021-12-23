@@ -55,23 +55,84 @@ function checkFields() {
 
     //on vérifie si les champs sont vides
     if (inputList.includes(0)) {	
-        console.log("champ vide")	
-        return false
+        console.log("champ vide");
+        return false;
     }
     else {	
-        console.log("champ ok !")
-        return true
+        console.log("champ ok !");
+        return true;
     }
 }
 
-    //empèche l'envoi du formulaire si les conditions ne sont pas bonnes
+//empèche l'envoi du formulaire si les conditions ne sont pas bonnes
 function validateForm(i) {
-
     i.preventDefault();
     checkFields();
 }
 
-
+//reset les données du formulaire
 function resetData() {
     document.getElementById("myForm").reset();
+}
+
+
+//validation Prénom
+function nameValid() {
+    nameLength = formData[0].value.length;
+    if (nameLength > 1) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+//validation Nom de famille
+function surnameValid() {
+    surnameLength = formData[0].value.length;
+    if (surnameLength > 1) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+//validation email
+function emailValid() {
+    emailValue = formData[2].value
+    const check = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (email.match(check)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+//validation concours
+function tourneyValid() {
+    tourneyValue = formData[4].value;
+    tourneyLength = formData[4].value.length;
+    if (typeof tourneyValue === 'number' && tourneyLength != 0) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+//validation ville
+function townValid() {
+
+}
+
+//validation conditions générales
+function generalValid() {
+    if (document.getElementById('checkbox1').checked){
+        return true;
+    }
+    else{
+        return false
+    }
 }
