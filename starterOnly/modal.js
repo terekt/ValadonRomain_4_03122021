@@ -33,34 +33,14 @@ function launchModal() {
 // close modal form
 function closeModal() {
     modalbg.style.display = "none";
-/*
-        //taille des données rentrée par l'utilisateur
-        firstName = formData[0].value.length;
-        lastName = formData[1].value.length;
-        email = formData[2].value.length;
-        birthDate = formData[3].value.length;
-        tourneyQuantity = formData[4].value.length;
-        location = townRadio;
-        checkbox = formData[11];
-        
-    console.log(firstName);
-    console.log(lastName);
-    
-        //on vérifie si les champs sont vides | email | birthDate | tourneyQuantity | location | checkbox
-        if (firstName && lastName  == 0) {	
-            console.log("champ vide")
-        }
-        else {	
-            console.log("champ ok !")
-        }*/
+    resetData();
   }
 
 
 // Validate form
-function validateForm(i) {
+function checkFields() {
 
-    i.preventDefault()
-    //taille des données rentrée par l'utilisateur
+    //On stocke la taille des données rentrée par l'utilisateur
     firstName = formData[0].value.length;
     lastName = formData[1].value.length;
     email = formData[2].value.length;
@@ -69,17 +49,29 @@ function validateForm(i) {
     //location = townRadio;
     checkbox = formData[11];
 
-    
+    //On récupère les données dans une array
     let inputList = [];
-    inputList.push(firstName, lastName, email, birthDate, tourneyQuantity, location, checkbox);
+    inputList.push(firstName, lastName, email, birthDate, tourneyQuantity, checkbox);
 
     //on vérifie si les champs sont vides
-    if (firstName  == 0) {	
-        console.log("champ vide")
+    if (inputList.includes(0)) {	
+        console.log("champ vide")	
         return false
     }
     else {	
         console.log("champ ok !")
+        return true
     }
 }
 
+    //empèche l'envoi du formulaire si les conditions ne sont pas bonnes
+function validateForm(i) {
+
+    i.preventDefault();
+    checkFields();
+}
+
+
+function resetData() {
+    document.getElementById("myForm").reset();
+}
