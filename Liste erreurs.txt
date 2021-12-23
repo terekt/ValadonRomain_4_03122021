@@ -5,6 +5,7 @@ CHROME
 [x]-dans le formulaire, espaces incorrects dans les titres des champs
 [x]-dans le formulaire, police des titres des champs incorrect
 [x]-alligner logo, titre et texte
+-image background non utilisé
 
 mobile :
 [x]-breakpoint du menu incorrect
