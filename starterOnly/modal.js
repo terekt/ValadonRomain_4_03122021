@@ -140,21 +140,30 @@ function tourneyValid() {
 
 //validation ville
 function townValid(i) {
-    const radioSelect = document.querySelectorAll('input[name="location"]');
-        if (radioSelect.checked) {
-            return true
-        }
-        else {
-            return false
-        }
+    if(document.querySelectorAll('[name="location"]:checked').length > 0) {
+        return true;
     }
-
-    //validation conditions générales
-    function generalValid() {
-        if (document.getElementById('checkbox1').checked) {
+    else {
+        return false;
+    }
+    /*
+    var radios = document.getElementsByName("location");
+    for (var i = 0, len = radios.length; i < len; i++) {
+        if (radios[i].checked) {
             return true;
         }
         else {
-            return false
+            return false;
         }
+    }*/
+}
+
+//validation conditions générales
+function generalValid() {
+    if (document.getElementById('checkbox1').checked) {
+        return true;
     }
+    else {
+        return false
+    }
+}
