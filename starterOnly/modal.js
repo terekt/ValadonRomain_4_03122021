@@ -16,21 +16,13 @@ const modalClose = document.querySelectorAll(".close");
 const formInput = document.querySelectorAll(".formData input");
 const formData = document.querySelectorAll(".formData");
 const submitForm = document.querySelector(".btn-submit");
+const submitFinal = document.querySelector(".close-valid");
 const townRadio = document.querySelectorAll(".location_form [name=\"location\"]");
 
 // Regex values
 const regTourney = /^\d+$/;
 const regBirth = /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/;
 const regMail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
-/* A REVOIR Ne fonctionne pas opur l'utilisatiion que je voulais en faire
-// Form input values
-let firstName = formInput[0].value;
-let lastName = formInput[1].value;
-let email = formInput[2].value;
-let birthDate = formInput[3].value;
-let tourneyQuantity = formInput[4].value;
-let checkbox = formInput[11];*/
 
 // Error messages
 const error1 = "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
@@ -41,6 +33,7 @@ const error5 = "Veuillez entrer un nombre valide.";
 const error6 = "Veuillez choisir une ville.";
 const error7 = "Veuillez acceptez les termes et conditions.";
 
+// Les états des erreurs
 let errorState = [false, false, false, false, false, false, false]
 
 // launch modal event
@@ -52,6 +45,8 @@ modalClose.forEach((btn) => btn.addEventListener("click", closeModal));
 // validate form event
 submitForm.addEventListener("click", validateForm);
 
+// close modal event after validation
+submitFinal.addEventListener("click", closeModal);
 
 // launch modal form
 function launchModal() {
@@ -62,6 +57,8 @@ function launchModal() {
 function closeModal() {
     resetData();
     modalbg.style.display = "none";
+    modalBody.style.display = "block";
+    modalValid.style.display = "none";
 }
 
 
@@ -81,13 +78,14 @@ function checkFields() {
         console.log("champ vide");
         console.log(validList);
         console.log(errorState);
-        modalBody.style.display = "none";
-        modalValid.style.display = "block";
         return false;
     }
     else {
         console.log("champ ok !");
         console.log(validList);
+        console.log(errorState);
+        modalBody.style.display = "none";
+        modalValid.style.display = "flex";
         return true;
     }
 }
