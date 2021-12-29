@@ -17,11 +17,11 @@ const townRadio = document.querySelectorAll(".location_form [name=\"location\"]"
 const reg = /^\d+$/;
 const check = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-let firstName = formData[0].value.length;
-let lastName = formData[1].value.length;
-let email = formData[2].value.length;
-let birthDate = formData[3].value.length;
-let tourneyQuantity = formData[4].value.length;
+let firstName = formData[0].value;
+let lastName = formData[1].value;
+let email = formData[2].value;
+let birthDate = formData[3].value;
+let tourneyQuantity = formData[4].value;
 let checkbox = formData[11];
 
 let inputList = [];
@@ -53,7 +53,7 @@ function closeModal() {
 function checkFields() {
 
     //On récupère la présence d'une donnée pour chaque champs dans une array
-    inputList.push(firstName, lastName, email, birthDate, tourneyQuantity, checkbox);
+    inputList.push(firstName.length, lastName.length, email.length, birthDate.length, tourneyQuantity.length, checkbox);
 
     //On récupère les resultats des fonctions dans une array
     let validList = [nameValid(), surnameValid(), emailValid(), birthValid(), tourneyValid(), townValid(townRadio), generalValid()];
@@ -85,8 +85,7 @@ function resetData() {
 
 //validation Prénom
 function nameValid() {
-    nameLength = formData[0].value.length;
-    if (nameLength > 1) {
+    if (firstName > 1) {
         return true;
     }
     else {
@@ -96,8 +95,7 @@ function nameValid() {
 
 //validation Nom de famille
 function surnameValid() {
-    surnameLength = formData[0].value.length;
-    if (surnameLength > 1) {
+    if (lastName > 1) {
         return true;
     }
     else {
@@ -107,8 +105,7 @@ function surnameValid() {
 
 //validation email
 function emailValid() {
-    emailValue = formData[2].value
-    if (check.test(emailValue)) {
+    if (check.test(email)) {
         return true;
     }
     else {
@@ -118,8 +115,7 @@ function emailValid() {
 
 //validation Date de naissance
 function birthValid() {
-    birthValue = formData[3].value;
-    if (reg.test(birthValue)) {
+    if (reg.test(birthDate)) {
         return true;
     }
     else {
@@ -129,8 +125,7 @@ function birthValid() {
 
 //validation concours
 function tourneyValid() {
-    tourneyValue = formData[4].value;
-    if (reg.test(tourneyValue)) {
+    if (reg.test(tourneyQuantity)) {
         return true;
     }
     else {

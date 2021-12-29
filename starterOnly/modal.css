@@ -16,11 +16,14 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    background-image: url("background.png");
     font-family: var(--font-default);
     font-size: 18px;
     max-width: 1300px;
     margin: 0 auto;
+}
+
+#container {
+    margin: 0 2vw;
 }
 
 p {
@@ -35,7 +38,7 @@ img {
 
 .topnav {
     overflow: hidden;
-    padding: 3.5% 2vw 3.5% 2vw;
+    padding: 3.5% 0 3.5% 0;
 }
 
 .header-logo {
@@ -131,7 +134,6 @@ main {
     font-weight: bolder;
     color: black;
     margin-top: 0.5vw;
-    padding: 0 2vw;
     border-radius: 2rem;
     text-align: justify;
 
@@ -154,11 +156,6 @@ main {
     background: #3876ac;
 }
 
-.footer {
-    margin: 20px;
-    padding: 10px;
-    font-family: var(--font-slab);
-}
 
 /* Modal form */
 
@@ -456,7 +453,6 @@ input[data-error]::after {
     grid-template-columns: repeat(12, 1fr);
     overflow: hidden;
     box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
-    margin-bottom: 10px;
 }
 
 .hero-content {
@@ -532,12 +528,6 @@ input[data-error]::after {
 
 .hero-section>.btn-signup {
     display: none;
-}
-
-footer {
-    padding-left: 2vw;
-    padding-right: 2vw;
-    margin: 0 20px;
 }
 
 @media screen and (max-width: 768px) {
