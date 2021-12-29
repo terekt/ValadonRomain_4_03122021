@@ -14,6 +14,18 @@ const modalClose = document.querySelectorAll(".close");
 const formData = document.querySelectorAll(".formData input");
 const submitForm = document.querySelector(".btn-submit");
 const townRadio = document.querySelectorAll(".location_form [name=\"location\"]");
+const reg = /^\d+$/;
+const check = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+let firstName = formData[0].value.length;
+let lastName = formData[1].value.length;
+let email = formData[2].value.length;
+let birthDate = formData[3].value.length;
+let tourneyQuantity = formData[4].value.length;
+let checkbox = formData[11];
+
+let inputList = [];
+
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -40,16 +52,7 @@ function closeModal() {
 // Validate form
 function checkFields() {
 
-    //On stocke la taille des données rentrée par l'utilisateur
-    firstName = formData[0].value.length;
-    lastName = formData[1].value.length;
-    email = formData[2].value.length;
-    birthDate = formData[3].value.length;
-    tourneyQuantity = formData[4].value.length;
-    checkbox = formData[11];
-
-    //On récupère les données dans une array
-    let inputList = [];
+    //On récupère la présence d'une donnée pour chaque champs dans une array
     inputList.push(firstName, lastName, email, birthDate, tourneyQuantity, checkbox);
 
     //On récupère les resultats des fonctions dans une array
@@ -105,7 +108,6 @@ function surnameValid() {
 //validation email
 function emailValid() {
     emailValue = formData[2].value
-    const check = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if (check.test(emailValue)) {
         return true;
     }
@@ -116,7 +118,6 @@ function emailValid() {
 
 //validation Date de naissance
 function birthValid() {
-    var reg = /^\d+$/;
     birthValue = formData[3].value;
     if (reg.test(birthValue)) {
         return true;
@@ -128,7 +129,6 @@ function birthValid() {
 
 //validation concours
 function tourneyValid() {
-    var reg = /^\d+$/;
     tourneyValue = formData[4].value;
     if (reg.test(tourneyValue)) {
         return true;
@@ -146,16 +146,6 @@ function townValid(i) {
     else {
         return false;
     }
-    /*
-    var radios = document.getElementsByName("location");
-    for (var i = 0, len = radios.length; i < len; i++) {
-        if (radios[i].checked) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }*/
 }
 
 //validation conditions générales
