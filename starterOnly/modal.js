@@ -48,6 +48,7 @@ submitForm.addEventListener("click", validateForm);
 // close modal event after validation
 submitFinal.addEventListener("click", closeModal);
 
+
 // launch modal form
 function launchModal() {
     modalbg.style.display = "block";
@@ -61,19 +62,23 @@ function closeModal() {
     modalValid.style.display = "none";
 }
 
-
-
 // Validate form
+function validateForm(x) {
+    x.preventDefault();
+    checkFields();
+}
+
+// Empèche l'envoi du formulaire si les conditions ne sont pas bonnes
 function checkFields() {
 
     //On récupère la présence d'une donnée pour chaque champs dans une array
     let inputList = [];
     inputList.push(formInput[0].value.length, formInput[1].value.length, formInput[2].value.length, formInput[3].value.length, formInput[4].value.length, formInput[1]);
 
-    //On récupère les resultats des fonctions dans une array
+    //On récupère les resultats de chaque champ dans une array
     let validList = [nameValid(), surnameValid(), emailValid(), birthValid(), tourneyValid(), townValid(townRadio), generalValid()];
 
-    //on vérifie si les champs sont vides et erronés //  inputList.includes(0)
+    //on vérifie si les champs sont vides et erronés
     if (inputList.includes(0) || validList.includes(false)) {
         console.log("champ vide");
         console.log(validList);
@@ -90,14 +95,6 @@ function checkFields() {
     }
 }
 
-
-//empèche l'envoi du formulaire si les conditions ne sont pas bonnes
-function validateForm(x) {
-    x.preventDefault();
-    checkFields();
-}
-
-
 //reset les données du formulaire
 function resetData() {
     document.getElementById("myForm").reset();
@@ -113,13 +110,13 @@ function resetData() {
 
 //validation Prénom
 function nameValid() {
-    if (formInput[0].value.length > 1) {
-        errorReset(formData[0], 0);
-        return true;
+    if (formInput[0].value.length > 1) { // si le prénom fait plus de 1 charactère
+        errorReset(formData[0], 0); // reset l'erreur 1
+        return true; // la fonction retourne true
     }
-    else {
-        errorMessage(error1, formData[0], 0);
-        return false;
+    else { // sinon
+        errorMessage(error1, formData[0], 0); // affiche le message d'erreur du prénom
+        return false; // la fonction retourne false
     }
 }
 
@@ -198,16 +195,16 @@ function generalValid() {
 // Génération du message d'erreur
 function errorMessage(errorText, formNumber, errorNumber) {
 
-    var newDiv = document.createElement("div");
-    var newContent = document.createTextNode(errorText);
+    var newDiv = document.createElement("div"); // créé une variable contenant une création d'une div
+    var newContent = document.createTextNode(errorText); // créé une variable contenant une du texte reprenant la valeur spécifié
 
-    if (errorState[errorNumber] == false){
-    newDiv.appendChild(newContent);
-    newDiv.setAttribute('class', 'data-error')
+    if (errorState[errorNumber] == false){ // si l'erreur avec le numéro spécifié n'est pas affiché
+    newDiv.appendChild(newContent); // assigne le texte à la div
+    newDiv.setAttribute('class', 'data-error') // donne la classe data-error à la div
 
-    formNumber.parentNode.insertBefore(newDiv, formNumber.nextSibling);
+    formNumber.parentNode.insertBefore(newDiv, formNumber.nextSibling); // insère la div après l'input spécifié
 
-    errorState[errorNumber] = true;
+    errorState[errorNumber] = true; // l'erreur est définie comme affichée
     }
     else {
     }
@@ -217,9 +214,9 @@ function errorMessage(errorText, formNumber, errorNumber) {
 // Détruit l'erreur affichée
 function errorReset(formNumber, errorNumber) {
 
-    if (errorState[errorNumber] == true) {
-        formNumber.parentNode.removeChild(formNumber.nextSibling);
-        errorState[errorNumber] = false;
+    if (errorState[errorNumber] == true) { // si l'erreur est définie comme affichée
+        formNumber.parentNode.removeChild(formNumber.nextSibling); // enlève la div après l'input spécifié
+        errorState[errorNumber] = false; // l'erreur est définie comme cachée
     }
     else {
     }
