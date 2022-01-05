@@ -1,7 +1,7 @@
 Erreurs :
 
-CHROME
-[x]-images étirées (taille image + propriété)
+DESKTOP
+[x]-image étirée + mauvaise taille max
 [x]-dans le formulaire, espaces incorrects dans les titres des champs
 [x]-dans le formulaire, police des titres des champs incorrect
 [x]-alligner logo, titre et texte
@@ -10,21 +10,15 @@ CHROME
 [x]-correction des margins / padding
 [x]-pas de container pour alligner les éléments
 
-mobile :
+MOBILE
 [x]-breakpoint du menu incorrect
 [x]-formulaire à mettre sur toute la largeur
 [x]-menu fixe au dessus du formulaire
 [x]-enlever le fond qui assombrit
 [x]-aligner le logo, le texte et l'image
 [x]-bouton menu noir (il doit etre rouge)
--menu déroulant qui s'affiche avec une mauvaise position + retour en haut
+[x]-menu déroulant qui s'affiche avec une mauvaise position + retour en haut
 
-FIREFOX
--texte du copyright trop gros
--texte dans le formulaire trop mince (à part les titre des champs)
-
-mobile :
--formulaire apparait trop en hauteur
 
 
 
