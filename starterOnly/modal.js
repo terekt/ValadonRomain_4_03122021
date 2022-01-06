@@ -48,6 +48,12 @@ submitForm.addEventListener("click", validateForm);
 // close modal event after validation
 submitFinal.addEventListener("click", closeModal);
 
+document.getElementById("first").addEventListener("blur", nameValid);
+document.getElementById("last").addEventListener("blur", surnameValid);
+document.getElementById("email").addEventListener("blur", emailValid);
+document.getElementById("birthdate").addEventListener("blur", birthValid);
+document.getElementById("quantity").addEventListener("blur", tourneyValid);
+document.getElementById("checkbox1").addEventListener("blur", generalValid);
 
 // launch modal form
 function launchModal() {
