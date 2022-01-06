@@ -53,7 +53,7 @@ document.getElementById("last").addEventListener("blur", surnameValid);
 document.getElementById("email").addEventListener("blur", emailValid);
 document.getElementById("birthdate").addEventListener("blur", birthValid);
 document.getElementById("quantity").addEventListener("blur", tourneyValid);
-document.getElementById("checkbox1").addEventListener("blur", generalValid);
+document.getElementById("checkbox1").addEventListener("change", generalValid);
 
 // launch modal form
 function launchModal() {
@@ -190,13 +190,15 @@ function townValid(i) {
 function generalValid() {
     if (document.getElementById('checkbox1').checked) {
         errorReset(formData[6], 6);
+        console.log("true");
         return true;
     }
     else {
         errorMessage(error7, formData[6], 6);
+        console.log("false");
         return false
     }
-}
+} 
 
 // Génération du message d'erreur
 function errorMessage(errorText, formNumber, errorNumber) {
